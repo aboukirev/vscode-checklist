@@ -1,0 +1,39 @@
+{
+	"name": "checklist",
+    "displayName": "Hierarchical checklists for markdown in VSCode",
+	"version": "0.1.0",
+    "author": "Alexei Boukirev",
+    "publisher": "aboukirev",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/aboukirev/vscode-checklist.git"
+    },
+	"engines": { 
+        "vscode": "0.10.x" 
+    },
+	"contributes": {
+        "commands": [{
+            "command": "checklist.update",
+            "title": "CheckList Update"
+        }],
+        "keybindings": [{
+            "command": "checklist.update",
+            "key": "shift+enter",
+            "when": "editorTextFocus && editorLangId == 'markdown'"
+        }] 
+	},
+    "activationEvents": [
+        "onLanguage:markdown"
+    ],
+    "main": "./out/extension",
+    "scripts": {
+        "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+        "compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
+        "build": "tsc"
+    },
+    "devDependencies": {
+        "typescript": "^1.6.2",
+        "vscode": "0.10.x"
+    }
+}
